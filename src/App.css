@@ -2,3 +2,61 @@
   background-color: fff;
 }
 
+.toast{
+  min-width: 200px ;
+  padding: 0 15px;
+  height: 50px;
+  background-color: #eee;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: flex;
+  border-radius: 10px;
+  animation: show 10s forwards;
+  overflow: hidden;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+.toast .overlay{
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  animation: color 8s forwards linear;
+}
+.toast p{
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 15px;
+}
+@keyframes show {
+  0%{
+      transform: translateX(-100%);
+  }
+  20%{
+      
+      transform: translateX(10px);
+  }
+  80%{
+      transform: translateX(10px);
+      
+  }
+  100%{
+      transform: translateX(-100%);
+  }
+}
+@keyframes color {
+  from{
+      background-color: green;
+      right: 0;
+  }
+  to{
+      background-color: red;
+      right: 100%;
+  }
+}

@@ -1,4 +1,5 @@
 
+
 function Toast(msg) {
     const df = `
     <div class = "toast">
