@@ -33,7 +33,7 @@ if(!text){getTextData()}
   useEffect(()=>{      
     const fetch = async()=>{
 
-      if(localStorage.length){
+      if(localStorage.length >= 1){
         if(localStorage.key(0).startsWith("sb")){
           const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
           await supabase.from("users").select("*").eq("email",token.user.email)
