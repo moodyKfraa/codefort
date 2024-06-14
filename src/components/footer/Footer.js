@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './style.module.css'
 
-function Footer() {
+function Footer({text}) {
   return (
     <div className={styles.footer}>
-      <span>للاستفسار عن اي سئلة تواصل معنا عبر الواتس على : 01090486930</span>
+      <span>{text}</span>
       <span style={{fontSize:10}}>made by:ModyKfraa</span>
     </div>
   )
