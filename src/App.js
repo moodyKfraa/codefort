@@ -36,7 +36,7 @@ if(!text){getTextData()}
           const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
           await supabase.from("users").select("*").eq("email",token.user.email)
           .then((d)=>{
-            if(d.data){
+            if(d.data[0]){
               if(d.data[0].id === token.user.id ){
                 setIsLoggedIn(true)
                 setUser(d.data[0])
