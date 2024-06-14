@@ -1,0 +1,170 @@
+{
+    "en" :{
+        "header" : {
+          "ul" : [
+            "Home",
+            "Contact Us"
+          ],
+          "bts" :[
+            "Sign Up",
+            "Login"
+          ]
+        },
+        "home" :{
+          "toast" : [
+            "Welcome again",
+            "Welcome to CodeFort"
+          ],
+          "h1" :[
+            "CODEFORT",
+            "Academy That Builds Devs"
+          ] ,
+          "p" : "Join us at Codefort Academy to create a bright future for yourself, we are interested in creating logical thinking so that the student is able to solve problems creatively and unfamiliarly, all you need will find here, GET IN now :....",
+          "btn" : "Join Now"
+        },
+        "contact" :{
+          "fb" : "CodeFort Academy Page",
+          "wa" : "Chat With Us"
+        },
+        "form":{
+          "span" : [
+            "Welcome With The New Div",
+            "Log In"
+          ],
+          "label":[
+            "name",
+            "phone",
+            "email",
+            "password"
+          ],
+          "bt" : "send",
+          "toast": [
+            "You Are In",
+            "Some Thing went wrong",
+            "link has been sent to you"
+          ]
+        },
+        "user":{
+          "btn" : [
+            "Videos",
+            "Profile"
+          ],
+          "videos" : {
+          "toast" : "contact us activate your account",
+            "a" : "Be sure That you have been Acivated your Account",
+            "div": "Choose a video to display..."
+          },
+          "profile":{
+            "toast" : [
+              "the password does not match",
+              "Password Changed",
+              "Logged out"
+            ],
+            "btn":[
+              "Overview",
+              "Change Password",
+              "Log Out"
+            ],
+            "h1": [
+              "My Account",
+              "Change Password"
+            ],
+            "p":[
+            "name",
+            "phone",
+            "email",
+            "Joined Us On"
+            ],
+            "form" :[
+              "New Password",
+              "Repeat The Password",
+              "send"
+            ]
+          }
+        }
+    },
+    "ar" :{
+      "header" : {
+        "ul" : [
+          "الصفحة الرئيسية",
+          "تواصل معانا"
+        ],
+        "bts" :[
+          "التسجيل",
+          "تسجيل الدخول"
+        ]
+      },
+      "home" :{
+        "toast" : [
+          "مرحبا مجددا",
+          "محبا بالزوار"
+        ],
+        "h1" :[
+          "CODEFORT",
+          "اكاديمية تبني مبرمج"
+        ] ,
+        "p" : "انضم إلينا في أكاديمية كودفورت لخلق مستقبل مشرق لنفسك ، نحن مهتمون بخلق التفكير المنطقي حتى يتمكن الطالب من حل المشكلات بشكل إبداعي وغير مألوف ، كل ما تحتاجه ستجده هنا ، احصل الآن :....",
+        "btn" : "انضم الان"
+      },
+      "contact" :{
+        "fb" : "صفحتنا على الفيسبوك",
+        "wa" : "راسلنا على الواتس"
+      },
+      "form":{
+        "span" : [
+          "مرحبا بالمبرمجين الاساطير",
+          "سجل الدخول"
+        ],
+        "label":[
+          "الاسم",
+          "الهاتف",
+          "الاميل",
+          "كلمة السر"
+        ],
+        "bt" : "سجل",
+        "toast": [
+          "تم تسجيل الدخول",
+          "حدث خطا ما",
+          "تم ارسال رسالة التفعيل"
+        ]
+      },
+      "user":{
+        "btn" : [
+          "الفيديوهات",
+          "الملف الشخصي"
+        ],
+        "videos" : {
+          "toast" : "تواصل معنا لتفعيل الحساب",
+          "a" : "تواصل معنا لتفعيل الحساب",
+          "div": "اختر فيديو لعرضه"
+        },
+        "profile":{
+          "toast" : [
+            "الباسيورد غير متطابق",
+            "تم تغيير الباسيورد",
+            "تم تسجيل الخروح"
+          ],
+          "btn":[
+            "ملفي",
+            "تغيير الباسيورد",
+            "تسجيل الخروج"
+          ],
+          "h1": [
+            "حسابي",
+            "تغيير الباسيورد"
+          ],
+          "p":[
+          "الاسم",
+          "الهاتف",
+          "الايميل",
+          "تاريخ الانضمام"
+          ],
+          "form" :[
+            "الباسيورد الجديد",
+            "اعد كتابة الباسيورد",
+            "ارسال"
+          ]
+        }
+      }
+    }
+}

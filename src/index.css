@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap');
+
+.marhey-fonny{
+  font-family: "Marhey", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+*{
+  font-family: morhey-fonny;
+  color: #333;
+}
+
+:root{
+  --primary-color: #24a56d;
+}
+
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+  direction: rtl;
+}
+#root{
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  margin: auto;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+header ul a.active{
+  color: var(--primary-color);
+  position: relative;
+}
+header ul a.active::before{
+  content: "";
+  position: absolute;
+  bottom: -27px;
+  left:0 ;
+  height: 3px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+} 
+
+img{
+  width: 100%;    
+  }
+
+  

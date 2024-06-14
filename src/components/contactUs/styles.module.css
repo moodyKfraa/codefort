@@ -1,0 +1,59 @@
+.ContactUs{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: fit-content;
+    padding: 50px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.ContactUs .item{
+    background-color: #eee;
+    padding:15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+    height: 120px;
+    width: 150px;
+    transition-duration: .3s;
+}
+.item:hover{
+    transform: scale(1.05);
+}
+.item a , .item p{
+    font-size: 17px;
+    font-weight: 700;
+    color:#777;
+}
+.item a:hover{
+    color: #000;
+}
+.item:nth-of-type(2),
+.item:nth-of-type(1)
+{
+    position: relative;
+    overflow: hidden;
+    transition-duration: 1s;
+}
+.item img{
+    position: absolute;
+    width: 90%;
+    height: 200px;
+    bottom: -200%;
+    visibility: hidden;
+    transition-duration: 1s;
+}
+.item:nth-of-type(2):hover,
+.item:nth-of-type(1):hover{
+    height: 350px;
+}
+.item:hover img{
+    bottom: 20px;
+    visibility: visible;
+}
+@media (max-width:450px) {
+    .ContactUs{flex-direction: column; gap: 30px; margin: 20px 0 70px; padding: 10px;}
+}

@@ -1,0 +1,54 @@
+.form{
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 420px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 10px;
+    gap: 50px;
+}
+.form .inner{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form .inner div{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 5px;
+}
+.form span{
+    font-size: 40px;
+    text-align: center;
+}
+.form label{
+    font-size: 17px;
+}
+.form input{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    direction: ltr;
+}
+.form input[name = "submit"]{
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+@media (max-width : 768px) {
+    .form {
+        width: 90vw;
+        padding: 20px 0;
+        margin-bottom: 50px;
+    }
+}

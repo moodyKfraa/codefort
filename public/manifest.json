@@ -1,0 +1,9 @@
+{
+  "short_name": "CodeFort Academy",
+  "name": "Academy for web development",
+  "icons": [{"src": "./logo.png"}],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#ffffff"
+}
