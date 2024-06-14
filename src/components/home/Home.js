@@ -19,7 +19,7 @@ function Home({isLoggedIn , text}) {
                 <p>{text.p}</p>
                 <NavLink to="codefort/signup">{text.btn}</NavLink>
             </div>
-            <img src={home_banner}/>
+            <img src={home_banner} alt='landing'/>
             </div>
         </div>
     </div>

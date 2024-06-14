@@ -1,4 +1,3 @@
-import style from './style.css'
 
 function Toast(msg) {
     const df = `

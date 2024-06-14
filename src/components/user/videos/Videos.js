@@ -18,7 +18,7 @@ function Videos({user , text}) {
                 }else{Toast(data.error.message)}
             })}
                 if(user.access){fetch()}else{Toast(text.toast)}
-        },[activeVideo ,user.access])
+        },[activeVideo ,user.access,text.toast])
 
   return (user&&   
       <div className={styles.videos}> 
@@ -31,7 +31,7 @@ function Videos({user , text}) {
                     </button>
                 )
             })
-            :<a href=''>{text.a}</a>
+            :<a href='app/user/videos'>{text.a}</a>
         }
     </div>
     <div className={styles.right}>
