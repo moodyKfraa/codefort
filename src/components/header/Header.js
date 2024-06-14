@@ -9,7 +9,7 @@ function Header({isLoggedIn , changeLang , text}){
     <header>
         <div className="container">
             <div className={styles.inner}>
-        <NavLink to="app/"><img src={logo} alt='codefort logo'/></NavLink>
+        <NavLink to="/"><img src={logo} alt='codefort logo'/></NavLink>
             <nav>
                 <ul>
                 {document.body.offsetWidth > 768 && <li><NavLink exact to="/" >{text.ul[0]}</NavLink></li>}
