@@ -21,7 +21,7 @@ async function getTextData(){
    const text =  await import('./data.json')
     setText(text)
     const lang = localStorage.getItem("lang")
-    setCurText(lang==="ar"? text.ar :text.en)
+    setCurText(lang==="en"? text.en :text.ar)
   }
 if(!text){getTextData()}
   const changeLang = (lang)=>{
