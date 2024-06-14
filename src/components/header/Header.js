@@ -27,8 +27,9 @@ function Header({isLoggedIn , changeLang , text}){
                     </div>
                     :
                     <div className={styles.bts}>
-                    <NavLink to="/user" style={{display:"flex"}}><span style={{color:"#eee"}} className="material-symbols-outlined">account_circle</span>
-                     </NavLink>
+                    <NavLink to="/user" style={{display:"flex"}}><span style={{color:"#eee"}} className="material-symbols-outlined">account_circle</span></NavLink>
+                        <button onClick={()=>changeLang("en")} >en</button>
+                        <button onClick={()=>changeLang("ar")} >ar</button>
                     </div>
 
             }
