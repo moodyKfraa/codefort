@@ -71,7 +71,7 @@ img{
     left: 0;
     display: flex;
     border-radius: 10px;
-    animation: show 20s forwards;
+    animation: show 8s forwards ease-in-out;
     overflow: hidden;
 }
 .toast .content{
@@ -86,7 +86,7 @@ img{
     bottom: 0;
     height: 5px;
     width: 100%;
-    animation: color 8s forwards linear;
+    animation: color 7s forwards linear;
 }
 .toast p{
     margin: 0;
@@ -96,15 +96,16 @@ img{
 @keyframes show {
     0%{
         transform: translateX(-100%);
+        display: none;
     }
     20%{
         
         transform: translateX(10px);
-    }
-    80%{
+      }
+      80%{
         transform: translateX(10px);
         
-    }
+      }
     100%{
         transform: translateX(-100%);
     }
