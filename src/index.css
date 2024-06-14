@@ -21,9 +21,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   direction: rtl;
-  overflow-x: hidden;
 }
 #root{
+  position: relative;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -98,12 +98,20 @@ img{
         transform: translateX(-100%);
         display: none;
     }
-    10%{
+    5%{
+        
+        transform: translateX(20px);
+      }
+    7%{
         
         transform: translateX(10px);
       }
       90%{
         transform: translateX(10px);
+        
+      }
+      92%{
+        transform: translateX(20px);
         
       }
     100%{
