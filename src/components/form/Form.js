@@ -39,7 +39,7 @@ function Form({type , sendUserData , text}) {
             phone:phone,
            })
            .then(async(data)=>{
-             if(data.data.user){
+             if(data.data){
                await supabase.from("users").insert([{
                  email : data.data.user.email,
                  id: data.data.user.id,
@@ -50,7 +50,7 @@ function Form({type , sendUserData , text}) {
                 }])
                 .then((data)=>{
                 if(data.status === 201){
-                  Toast(text.Toast[2])
+                  // Toast(text.Toast[2])
                   console.log("done",text);
                   reset()
                   nav("/")
