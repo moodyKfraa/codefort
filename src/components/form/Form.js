@@ -12,8 +12,10 @@ function Form({type , sendUserData , text}) {
     const formType = type === "signup";
 
     const reset = ()=>{
+        setName("")
         setEmail("")
         setPass("")
+        setPhone("")
     }
     const nav = useNavigate()
      async function fetchUserData (email){
@@ -50,6 +52,8 @@ function Form({type , sendUserData , text}) {
                 if(data.status === 201){
                   Toast(text.Toast[2])
                   console.log("done",text);
+                  reset()
+                  nav("/")
                 }else{
                   Toast(text.Toast[1])
                 }
