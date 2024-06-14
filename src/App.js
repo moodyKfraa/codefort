@@ -69,10 +69,10 @@ if(!text){getTextData()}
       <Header isLoggedIn={isLoggedIn} changeLang={changeLang} text={curText.header}/>
       <Routes>
         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} text={curText.home}/>} />
-        <Route path="app/contact" element={<ContactUs text={curText.contact}/>} />
-        <Route path="app/signup" element={<SignUp sendUserData={getUserData} text={curText.form} />} />
-        <Route path="app/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
-        <Route path="app/user" element={<User user={user} loggedout={loggedout} text={curText.user}/>} />
+        <Route path="/contact" element={<ContactUs text={curText.contact}/>} />
+        <Route path="/signup" element={<SignUp sendUserData={getUserData} text={curText.form} />} />
+        <Route path="/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
+        <Route path="/user" element={<User user={user} loggedout={loggedout} text={curText.user}/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>

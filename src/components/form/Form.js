@@ -65,7 +65,7 @@ function Form({type , sendUserData , text}) {
           }).then((data)=>{
             if(data.data.user){
               fetchUserData(data.data.user.email)
-              nav("app/user")
+              nav("/user")
             }else{
               Toast(data.error.message)
             }
