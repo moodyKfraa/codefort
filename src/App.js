@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from './components/header/Header'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/home/Home'
