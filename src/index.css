@@ -20,12 +20,12 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   min-height: 100vh;
   direction: rtl;
 }
 #root{
   min-height: 100vh;
+  overflow-x: hidden;
 }
 .container {
   display: flex;
