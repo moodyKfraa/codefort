@@ -10,6 +10,7 @@ import supabase from './Supabase'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
+import Toast from './components/toast/Toast'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
@@ -44,7 +45,7 @@ if(!text){getTextData()}
                 setIsLoggedIn(false)
                 setUser(null)
               }
-          })
+          }).catch((err)=>Toast("something went wrong"))
         }
       }else{
         setIsLoggedIn(false)
