@@ -75,7 +75,7 @@ if(!text){getTextData()}
         <Route path="/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
         <Route path="/user" element={<User user={user} loggedout={loggedout} text={curText.user}/>} />
       </Routes>
-      <Footer/>
+      <Footer text={curText.footer}/>
       </BrowserRouter>
   )
 }
