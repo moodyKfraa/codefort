@@ -105,7 +105,7 @@ function Form({type , sendUserData , text}) {
         <label name="password">{text.label[3]} :</label>
     <input name='password' required type='password' value={pass} onChange={(e)=> setPass(e.target.value)}  />
         </div>
-        <input type='submit' value={text.bt} name='submit' style={{pointerEvents:`${wait? "none" : "all"}`}}/>
+        <input type='submit' value={text.bt} name='submit' style={{pointerEvents:`${wait? "none" : "all"}` , opacity:`${wait? 0.5 : 1}`}}/>
         </div>
    </form>
   )
