@@ -70,7 +70,7 @@ if(!text){getTextData()}
       <BrowserRouter>
       <Header isLoggedIn={isLoggedIn} changeLang={changeLang} text={curText.header}/>
       <Routes>
-        <Route exact path="codefort/" element={<Home isLoggedIn={isLoggedIn} text={curText.home}/>} />
+        <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} text={curText.home}/>} />
         <Route path="/contact" element={<ContactUs text={curText.contact}/>} />
         <Route path="/signup" element={<SignUp sendUserData={getUserData} text={curText.form} />} />
         <Route path="/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
