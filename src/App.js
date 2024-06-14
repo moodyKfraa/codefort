@@ -36,7 +36,7 @@ if(!text){getTextData()}
       if(localStorage.length >= 1){
         for (let i = 0; i < localStorage.length; i++) {
           if(localStorage.key(i).startsWith("sb")){
-            const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
+            const token = JSON.parse(localStorage.getItem(localStorage.key(i)))
             await supabase.from("users").select("*").eq("email",token.user.email)
             .then((d)=>{
               if(d.data[0]){
