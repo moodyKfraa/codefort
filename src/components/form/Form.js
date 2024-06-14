@@ -9,6 +9,7 @@ function Form({type , sendUserData , text}) {
     const [email , setEmail] = useState('')
     const [pass , setPass] = useState('')
     const [phone , setPhone] = useState('')
+    const [wait , setWait] = useState(false)
     const formType = type === "signup";
 
     const reset = ()=>{
@@ -18,6 +19,7 @@ function Form({type , sendUserData , text}) {
         setPhone("")
     }
     const nav = useNavigate()
+
      async function fetchUserData (email){
       await supabase
        .from("users").select("*").eq("email", email)
@@ -26,12 +28,14 @@ function Form({type , sendUserData , text}) {
             sendUserData(data.data[0])
             reset()
             Toast(text.Toast[0])
-          }else{Toast(data.error.message)}
+            setWait(false)
+          }else{Toast(data.error.message);setWait(false)}
         })
       };
     
       const handleSubmit = async(e)=>{
       e.preventDefault();
+      setWait(true)
       if(formType){
         await supabase.auth.signUp({
             email : email,
@@ -50,15 +54,17 @@ function Form({type , sendUserData , text}) {
                 }])
                 .then((data)=>{
                 if(data.status === 201){
-                  Toast(text.toast[2])
                   reset()
-                  nav("/")
+                  setWait(false)
+                  nav("/login")
+                  Toast(text.toast[2])
                 }else{
+                  setWait(false)
                   Toast(text.toast[1])
                 }
               })
             }
-            else{Toast(text.toast[1])}
+            else{Toast(text.toast[1]);setWait(false)}
               
            
           })
@@ -70,12 +76,8 @@ function Form({type , sendUserData , text}) {
             if(data.data.user){
               fetchUserData(data.data.user.email)
               nav("/user")
-            }else{
-              Toast(data.error.message)
-            }
-            }
-           )
-      }
+              setWait(false)
+            }else{Toast(data.error.message);setWait(false)}})}
     }
 
 
@@ -103,7 +105,7 @@ function Form({type , sendUserData , text}) {
         <label name="password">{text.label[3]} :</label>
     <input name='password' required type='password' value={pass} onChange={(e)=> setPass(e.target.value)}  />
         </div>
-        <input type='submit' value={text.bt} name='submit'/>
+        <input type='submit' value={text.bt} name='submit' style={{pointerEvents:`${wait? "none" : "all"}`}}/>
         </div>
    </form>
   )
