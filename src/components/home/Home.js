@@ -17,7 +17,7 @@ function Home({isLoggedIn , text}) {
                 <h1>{text.h1[1]}</h1>
                 </div>
                 <p>{text.p}</p>
-                <NavLink to="codefort/signup">{text.btn}</NavLink>
+                <NavLink to="/signup">{text.btn}</NavLink>
             </div>
             <img src={home_banner} alt='landing'/>
             </div>
