@@ -49,6 +49,7 @@ function Form({type , sendUserData , text}) {
                 .then((data)=>{
                 if(data.status === 201){
                   Toast(text.Toast[2])
+                  console.log("done",text);
                 }else{
                   Toast(text.Toast[1])
                 }
