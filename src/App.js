@@ -6,11 +6,10 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/home/Home'
 import SignUp from './components/signup/SignUp'
 import Login from './components/login/Login'
-// import supabase from './Supabase'
+import supabase from './Supabase'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
-// import Toast from './components/toast/Toast'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
@@ -21,36 +20,38 @@ function App() {
 async function getTextData(){
    const text =  await import('./data.json')
     setText(text)
-    setCurText(text.ar)
+    const lang = localStorage.getItem("lang")
+    setCurText(lang==="ar"? text.ar :text.en)
   }
 if(!text){getTextData()}
   const changeLang = (lang)=>{
     setCurText(lang=== "en" ? text.en : text.ar)
+    localStorage.setItem("lang",lang)
     document.body.style.direction = `${lang === "en" ? "ltr" : "rtl"}`
   }
 
   useEffect(()=>{      
     const fetch = async()=>{
 
-      // if(localStorage.length){
-      //   if(localStorage.key(0).startsWith("sb")){
-      //     const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
-      //     await supabase.from("users").select("*").eq("email",token.user.email)
-      //     .then((d)=>{
-      //       if(d.data[0]){
-      //         if(d.data[0].id === token.user.id ){
-      //           setIsLoggedIn(true)
-      //           setUser(d.data[0])
-      //         }}else{
-      //           setIsLoggedIn(false)
-      //           setUser(null)
-      //         }
-      //     }).catch((err)=>Toast("something went wrong"))
-      //   }
-      // }else{
-      //   setIsLoggedIn(false)
-      //   setUser(null)
-      // }
+      if(localStorage.length){
+        if(localStorage.key(0).startsWith("sb")){
+          const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
+          await supabase.from("users").select("*").eq("email",token.user.email)
+          .then((d)=>{
+            if(d.data[0]){
+              if(d.data[0].id === token.user.id ){
+                setIsLoggedIn(true)
+                setUser(d.data[0])
+              }}else{
+                setIsLoggedIn(false)
+                setUser(null)
+              }
+          })
+        }
+      }else{
+        setIsLoggedIn(false)
+        setUser(null)
+      }
     }
     fetch()
   },[isLoggedIn ])
