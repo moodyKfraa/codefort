@@ -12,7 +12,7 @@ function Header({isLoggedIn , changeLang , text}){
         <NavLink to="app/"><img src={logo} alt='codefort logo'/></NavLink>
             <nav>
                 <ul>
-                {document.body.offsetWidth > 768 && <li><NavLink exact to="app/" >{text.ul[0]}</NavLink></li>}
+                {document.body.offsetWidth > 768 && <li><NavLink exact to="/" >{text.ul[0]}</NavLink></li>}
                 <li><NavLink to="app/contact">{text.ul[1]}</NavLink></li>
                 </ul>
             </nav>
