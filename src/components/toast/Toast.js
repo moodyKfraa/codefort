@@ -10,7 +10,7 @@ let node = document.createElement('div')
 node.className = 'toast'
 node.innerHTML =df
 node.style.zIndex=10
-    document.body.append(node);
+    document.body.querySelector("#root").append(node);
     setTimeout(() => {
         node.remove()
     }, 10000);
