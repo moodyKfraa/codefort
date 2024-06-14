@@ -34,21 +34,19 @@ if(!text){getTextData()}
     const fetch = async()=>{
 
       if(localStorage.length >= 1){
-        console.log(localStorage);
-        if(localStorage.key(0).startsWith("sb")){
-          const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
-          await supabase.from("users").select("*").eq("email",token.user.email)
-          .then((d)=>{
-            if(d.data[0]){
-              if(d.data[0].id === token.user.id ){
-                setIsLoggedIn(true)
-                setUser(d.data[0])
-              }}else{
-                setIsLoggedIn(false)
-                setUser(null)
-              }
-          })
-        }
+        for (let i = 0; i < localStorage.length; i++) {
+          if(localStorage.key(i).startsWith("sb")){
+            const token = JSON.parse(localStorage.getItem(localStorage.key(0)))
+            await supabase.from("users").select("*").eq("email",token.user.email)
+            .then((d)=>{
+              if(d.data[0]){
+                if(d.data[0].id === token.user.id ){
+                  setIsLoggedIn(true)
+                  setUser(d.data[0])
+                }}else{
+                  setIsLoggedIn(false)
+                  setUser(null)
+                }})}}
       }else{
         setIsLoggedIn(false)
         setUser(null)
