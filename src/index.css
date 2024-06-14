@@ -15,17 +15,16 @@
   --primary-color: #24a56d;
 }
 
-
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   direction: rtl;
+  overflow-x: hidden;
 }
 #root{
   min-height: 100vh;
-  overflow-x: hidden;
 }
 .container {
   display: flex;
@@ -74,7 +73,7 @@ img{
     animation: show 10s forwards;
     overflow: hidden;
 }
-.content{
+.toast .content{
     display: flex;
     justify-content: center;
     align-items: center;
