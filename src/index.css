@@ -71,7 +71,7 @@ img{
     left: 0;
     display: flex;
     border-radius: 10px;
-    animation: show 10s forwards;
+    animation: show 20s forwards;
     overflow: hidden;
 }
 .toast .content{

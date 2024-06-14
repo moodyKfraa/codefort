@@ -13,7 +13,7 @@ node.style.zIndex=10
     document.body.querySelector("#root").append(node);
     setTimeout(() => {
         node.remove()
-    }, 10000);
+    }, 20000);
 }
 
 export default Toast
