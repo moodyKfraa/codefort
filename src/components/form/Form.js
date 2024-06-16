@@ -3,6 +3,7 @@ import styles from "./Styles.module.css"
 import supabase from '../../Supabase'
 import { useNavigate } from 'react-router-dom'
 import Toast from '../toast/Toast'
+import logo from '../../assets/logo.png'
 
 function Form({type , sendUserData , text}) {
   const [name , setName] = useState('')
@@ -83,7 +84,7 @@ function Form({type , sendUserData , text}) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-    <span>{formType ? text.span[0] : text.span[1]}</span>
+    <img src={logo} alt='logo'/>
     <div className={styles.inner}>
       {type==="signup"&&
       <Fragment>

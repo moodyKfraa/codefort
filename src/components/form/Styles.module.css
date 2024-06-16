@@ -3,12 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 420px;
+    width: 320px;
     margin: auto;
     margin-top: 50px;
-    padding: 50px;
+    padding: 5px 10px;
     border-radius: 10px;
-    gap: 50px;
+    gap: 30px;
 }
 .form .inner{
     display: flex;
@@ -21,9 +21,8 @@
     position: relative;
     gap: 5px;
 }
-.form span{
-    font-size: 40px;
-    text-align: center;
+.form img{
+    width: 100px;
 }
 .form label{
     font-size: 17px;

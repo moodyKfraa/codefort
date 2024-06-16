@@ -20,7 +20,7 @@
     border: solid 1px #fff;
     text-align: right;
     padding: 10px;
-    color: var(--primary-color);
+    color: #333;
     cursor: pointer;
     font-size: 17px;
 }

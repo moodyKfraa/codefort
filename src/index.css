@@ -12,7 +12,7 @@
 }
 
 :root{
-  --primary-color: #24a56d;
+  --primary-color: #418d1d;
 }
 
 body {
@@ -70,7 +70,6 @@ img{
     top: 100px;
     left: 0;
     display: flex;
-    border-radius: 10px;
     animation: show 8s forwards ease-in-out;
     overflow: hidden;
 }
@@ -83,14 +82,14 @@ img{
 }
 .toast .overlay{
     position: absolute;
-    bottom: 0;
-    height: 5px;
-    width: 100%;
+    right: -15px;
+    width: 5px;
+    height: 100%;
     animation: color 7s forwards linear;
 }
 .toast p{
     margin: 0;
-    color: var(--primary-color);
+    color: #333;
     font-size: 15px;
 }
 @keyframes show {
@@ -121,10 +120,10 @@ img{
 @keyframes color {
     from{
         background-color: green;
-        right: 0;
+        top: 0;
     }
     to{
         background-color: red;
-        right: 100%;
+        top: 100%;
     }
 }
