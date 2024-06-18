@@ -1,10 +1,9 @@
-import React, { memo } from 'react'
+import React, { memo} from 'react'
 import styles from "./Styles.module.css"
-import home_banner from '../../assets/home_banner.jpg'
 import { NavLink } from 'react-router-dom'
 import Toast from '../toast/Toast'
 import {motion} from 'framer-motion'
-
+import Par from '../tsParticles/TsParticles'
 
 function Home({isLoggedIn , text}) {
   isLoggedIn ?  Toast(text.toast[0]) :Toast(text.toast[1])
@@ -31,6 +30,7 @@ function Home({isLoggedIn , text}) {
   
   return (
     <div className={styles.home}>
+            <Par/>
         <div className="container">
             <div className={styles.inner}>
             <div className={styles.text}>
@@ -44,7 +44,6 @@ function Home({isLoggedIn , text}) {
                 </motion.p>
                 {isLoggedIn ? <NavLink to="/user">{text.btn[1]}</NavLink> : <NavLink to="/signup">{text.btn[0]}</NavLink>}
             </div>
-            <img src={home_banner} alt='landing'/>
             </div>
         </div>
     </div>

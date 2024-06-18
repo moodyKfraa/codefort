@@ -84,27 +84,26 @@ function Form({type , sendUserData , text}) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-    <img src={logo} alt='logo'/>
     <div className={styles.inner}>
       {type==="signup"&&
       <Fragment>
         <div>          
-        <label name="name">{text.label[0]} :</label>
-        <input name='name' required type='text' value={name} onChange={(e)=> setName(e.target.value)}  />
+        <input name='name' required type='text' placeholder={text.label[0]} value={name} onChange={(e)=> setName(e.target.value)}  />
+            <span style={{animationName:`${!name?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.label[0]}</span>
             </div>
         <div>
-        <label name="phone">{text.label[1]} :</label>
-    <input name='phone' required type='number' value={phone} onChange={(e)=> setPhone(e.target.value)}  />
+    <input name='phone' required type='number' placeholder={text.label[1]} value={phone} onChange={(e)=> setPhone(e.target.value)}  />
+        <span style={{animationName:`${!phone?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.label[1]}</span>
         </div>
       </Fragment>
                }
         <div>
-    <label name="email">{text.label[2]} :</label>
-    <input name='email' required type='text' value={email} onChange={(e)=> setEmail(e.target.value)}  />
+    <input name='email' required type='text' placeholder={text.label[2]} value={email} onChange={(e)=> setEmail(e.target.value)}  />
+        <span style={{animationName:`${!email?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.label[2]}</span>
         </div>
         <div>
-        <label name="password">{text.label[3]} :</label>
-    <input name='password' required type='password' value={pass} onChange={(e)=> setPass(e.target.value)}  />
+    <input name='password' required type='password' placeholder={text.label[3]} value={pass} onChange={(e)=> setPass(e.target.value)}  />
+        <span style={{animationName:`${!pass?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.label[3]}</span>
         </div>
         <input type='submit' value={text.bt} name='submit' style={{pointerEvents:`${wait? "none" : "all"}` , opacity:`${wait? 0.5 : 1}`}}/>
         </div>

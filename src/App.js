@@ -27,6 +27,7 @@ if(!text){getTextData()}
   const changeLang = (lang)=>{
     setCurText(lang=== "en" ? text.en : text.ar)
     localStorage.setItem("lang",lang)
+    console.log(localStorage);
     document.body.style.direction = `${lang === "en" ? "ltr" : "rtl"}`
   }
 

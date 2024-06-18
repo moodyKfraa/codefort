@@ -8,7 +8,7 @@
     margin-top: 30px;
 }
 .ContactUs .item{
-    background-color: #eee;
+    background-color: var(--secondary-color);
     padding:15px 25px;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,8 @@
     height: 120px;
     width: 150px;
     transition-duration: .3s;
+    box-shadow: var(--shadow);
+    border: 1px dotted var(--primary-color);
 }
 .item:hover{
     transform: scale(1.05);
@@ -26,10 +28,10 @@
 .item a , .item p{
     font-size: 17px;
     font-weight: 700;
-    color:#777;
+    color:var(--text-color);
 }
 .item a:hover{
-    color: #000;
+    color: var(--primary-color );
 }
 .item:nth-of-type(2),
 .item:nth-of-type(1)

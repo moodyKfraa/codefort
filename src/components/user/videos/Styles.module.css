@@ -1,31 +1,34 @@
 .videos{
     width: 100%;
     height: 500px;
-    background-color: #eee;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 10px;
     padding: 20px;
     overflow: hidden;
-    background-color: #eee;
+    border: var(--primary-color) 1px solid;
 }
 .videos .left{
     display: flex;
     flex-direction: column;
     gap: 10px;
     overflow-y: scroll;
+    scrollbar-color: var(--text-color) #555;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: thin;
 }
 .videos .left button,
 .videos a{
-    border: solid 1px #fff;
     text-align: right;
     padding: 10px;
-    color: #333;
+    color: var(--text-color);
     cursor: pointer;
     font-size: 17px;
+    background-color: var(--secondary-color);
 }
 .videos .right {
     display: flex;
+    color: var(--text-color);
 }
 .videos .right .videoPlayer{
     width: 100%;

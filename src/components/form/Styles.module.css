@@ -1,50 +1,80 @@
 .form{
-    background-color: #eee;
+    background:transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 320px;
+    width: 320px;                                   
     margin: auto;
     margin-top: 50px;
-    padding: 5px 10px;
+    padding: 20px 10px;
     border-radius: 10px;
     gap: 30px;
+    box-shadow: var(--shadow);
 }
 .form .inner{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 .form .inner div{
     display: flex;
-    flex-direction: column;
     position: relative;
-    gap: 5px;
+    background-color: var(--secondary-color);
+    padding-top: 10px;
 }
 .form img{
     width: 100px;
 }
-.form label{
-    font-size: 17px;
-}
+
 .form input{
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding-top: 15px ;
     border: none;
     outline: none;
     font-size: 15px;
-    direction: ltr;
+    background-color: var(--secondary-color);
+    border-bottom: var(--primary-color) 1px solid;
+    color: var(--text-color);
 }
 .form input[name = "submit"]{
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--text-color);
     font-size: 20px;
-    border: none;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    outline: 1px solid var(--primary-color);
+    box-sizing: border-box;
 }
-
+.form input[name = "submit"]:hover{
+    background-color: transparent;
+    color: var(--primary-color );
+}
+.form .inner div span{
+    position: absolute;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    color: #666;
+}
+@keyframes show_span {
+    from{
+        opacity: 0;
+        top: 30px;
+    }to{
+        opacity: 1;
+        top: 0;
+    }
+}
+@keyframes hide_span {
+    from{
+        opacity: 1;
+        top: 0;
+    }
+    to{
+        opacity: 0;
+        top: 30px;
+    }
+}
 @media (max-width : 768px) {
     .form {
         width: 90vw;

@@ -20,7 +20,10 @@
             "Academy That Builds Devs"
           ] ,
           "p" : "Join us at Codefort Academy to create a bright future for yourself, we are interested in creating logical thinking so that the student is able to solve problems creatively and unfamiliarly, all you need will find here, GET IN now :....",
-          "btn" : "Join Now"
+          "btn" : [
+          "Join Now",
+          "My Courses"
+          ]
         },
         "contact" :{
           "fb" : "CodeFort Academy Page",
@@ -73,7 +76,7 @@
             "name",
             "phone",
             "email",
-            "Joined Us On"
+            "Joined On"
             ],
             "form" :[
               "New Password",

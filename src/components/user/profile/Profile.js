@@ -8,10 +8,19 @@ function Profile({user , loggedout , text}) {
   const [activeTab , setActiveTab] = useState("overview")
   const [newPass , setNewPass] = useState("")
   const [newPassrep , setNewPassrep] = useState("")
+  const [wait , setWait] = useState(false)
+
+  const reset = ()=>{
+    setNewPass("")
+    setNewPassrep("")
+}
   
-  const changePassword = async()=>{
+  const changePassword = async(e)=>{
+    e.preventDefault()
+    setWait(true)
     if(newPass!==newPassrep){
       Toast(text.toast[0])
+      setWait(false)
       return
     }
     await supabase.auth.updateUser({
@@ -20,8 +29,11 @@ function Profile({user , loggedout , text}) {
     }).then(data=>{
       if(data.data.user){
         Toast(text.toast[1])
-        setNewPass("")
-        setNewPassrep("")
+        reset()
+      setWait(false)
+      }else{
+        Toast(data.error.message)
+        setWait(false)
       }
     })
   }
@@ -30,8 +42,9 @@ function Profile({user , loggedout , text}) {
   const handleLogOut = async()=>{
     await supabase.auth.signOut()
     loggedout()
-    Toast(text.toast[2])
+    setWait(false)
     navigate("/")
+    Toast(text.toast[2])
   }
   return (
  user &&
@@ -59,12 +72,16 @@ function Profile({user , loggedout , text}) {
           :
           <div className={styles.changePassword}>
           <h1>{text.h1[1]}</h1>
-          <form onSubmit={(e)=>e.preventDefault()} className={styles.data} name='change password'>
-              <p> {text.form[0]} :</p>
-        <input required type='password' value={newPass} onChange={(e)=> setNewPass(e.target.value)}  /> 
-              <p>{text.form[1]} :</p>
-        <input required type='password' value={newPassrep} onChange={(e)=> setNewPassrep(e.target.value)}  />
-          <button onClick={changePassword}>{text.form[2]}</button>
+          <form onSubmit={changePassword} className={styles.data} name='change password'>
+        <div>
+    <input name='password' required type='text' placeholder={text.form[0]} value={newPass} onChange={(e)=> setNewPass(e.target.value)}  />
+        <span style={{animationName:`${!newPass?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[0]}</span>
+        </div>
+        <div>
+    <input name='password' required type='text' placeholder={text.form[1]} value={newPassrep} onChange={(e)=> setNewPassrep(e.target.value)}  />
+        <span style={{animationName:`${!newPassrep?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[1]}</span>
+        </div>
+        <input type='submit' value={text.form[2]} name='submit' style={{pointerEvents:`${wait? "none" : "all"}` , opacity:`${wait? 0.5 : 1}`}}/>
           </form>
         </div>
         }

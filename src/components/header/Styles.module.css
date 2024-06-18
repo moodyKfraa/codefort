@@ -2,8 +2,9 @@ header{
     display: flex;
     height: 60px;
     padding: 10px 0;
-    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    box-shadow: var(--shadow);
     font-size: 20px;
+    background-color: var(--secondary-color);
 }
 .inner{
     display: grid;
@@ -14,8 +15,8 @@ header{
     width: 100%;
 }
 header img {
-    width: 100px;
-    height: 70px;
+    width: 80px;
+    height: 50px;
 }
 .inner nav{
     display: flex;
@@ -28,7 +29,11 @@ ul{
     display: flex;
     gap: 20px;
 }
+header a{
+    color: var(--text-color);
+}
 .bts{
+    color: var(--text-color);
     display: flex;
     gap: 20px;
     align-items: center;
@@ -38,7 +43,15 @@ ul{
     background-color:var(--primary-color);
     padding: 8px 15px;
     border-radius: 10px;
-    color: #eee;
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    outline: 1px solid var(--primary-color);
+    transition-duration: 0.3s;
+
+}
+.bts a:first-of-type:hover{
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 header .translate{
@@ -48,11 +61,15 @@ header .translate{
     border-radius: 10px;
     overflow: hidden;
     gap: 2px;
+    border:1px solid var(--primary-color); 
 }
 header .translate button{
+    background-color: var(--secondary-color);
     font-size: 17px;
     border: none;
     padding: 5px 10px;
+    color: var(--text-color);
+    box-shadow: var(--shadow);
 }
 
 
