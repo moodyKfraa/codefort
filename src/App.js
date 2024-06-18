@@ -10,6 +10,7 @@ import supabase from './Supabase'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
+import Toast from './components/toast/Toast'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
@@ -33,28 +34,26 @@ if(!text){getTextData()}
 
   useEffect(()=>{      
     const fetch = async()=>{
-      await supabase.auth.getUser().then((user)=>console.log(user))
-      if(localStorage.length >= 1){
-        for (let i = 0; i < localStorage.length; i++) {
-          if(localStorage.key(i).startsWith("sb")){
-            const token = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            await supabase.from("users").select("*").eq("email",token.user.email)
-            .then((d)=>{
-              if(d.data[0]){
-                if(d.data[0].id === token.user.id ){
-                  setIsLoggedIn(true)
-                  setUser(d.data[0])
-                }}else{
-                  setIsLoggedIn(false)
-                  setUser(null)
-                }})}}
-      }else{
-        setIsLoggedIn(false)
-        setUser(null)
-      }
-    }
+      await supabase.auth.getUser().then(async ({data})=>{
+        if(data.user.aud === "authenticated"){
+          await supabase.from("users").select("*").eq("email",data.user.email)
+          .then(userData=>{
+            if(userData.data){
+              setIsLoggedIn(true)
+              setUser(userData.data[0])
+            }else{
+              Toast(userData.error.message)
+              setIsLoggedIn(false)
+              setUser()
+            }
+            })
+        }else{
+          setIsLoggedIn(false);
+          setUser(null)
+        }})}
+
     fetch()
-  },[isLoggedIn ])
+  },[isLoggedIn])
 
 
   const getUserData =(data)=>{
