@@ -22,12 +22,12 @@ async function getTextData(){
     setText(text)
     const lang = localStorage.getItem("lang")
     setCurText(lang==="en"? text.en :text.ar)
+    document.body.style.direction = `${lang === "en" ? "ltr" : "rtl"}`
   }
 if(!text){getTextData()}
   const changeLang = (lang)=>{
     setCurText(lang=== "en" ? text.en : text.ar)
     localStorage.setItem("lang",lang)
-    console.log(localStorage);
     document.body.style.direction = `${lang === "en" ? "ltr" : "rtl"}`
   }
 
