@@ -44,7 +44,7 @@ function Home({isLoggedIn , text}) {
                 </motion.p>
                 {isLoggedIn ? <NavLink to="/user">{text.btn[1]}</NavLink> : <NavLink to="/signup">{text.btn[0]}</NavLink>}
             </div>
-            <img src={home_banner} />
+            {/* <img src={home_banner} /> */}
             </div>
         </div>
     </div>

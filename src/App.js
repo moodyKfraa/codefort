@@ -33,7 +33,7 @@ if(!text){getTextData()}
 
   useEffect(()=>{      
     const fetch = async()=>{
-
+      await supabase.auth.getUser().then((user)=>console.log(user))
       if(localStorage.length >= 1){
         for (let i = 0; i < localStorage.length; i++) {
           if(localStorage.key(i).startsWith("sb")){
