@@ -3,7 +3,6 @@ import styles from "./Styles.module.css"
 import supabase from '../../Supabase'
 import { useNavigate } from 'react-router-dom'
 import Toast from '../toast/Toast'
-import logo from '../../assets/logo.png'
 
 function Form({type , sendUserData , text}) {
   const [name , setName] = useState('')
