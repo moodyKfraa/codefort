@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom'
 import Toast from '../toast/Toast'
 import {motion} from 'framer-motion'
 import Par from '../tsParticles/TsParticles'
-import home_banner from "../../assets/home_banner.png"
+import home_banner from "./home.json"
+import Lottie from 'lottie-react'
+
 function Home({isLoggedIn , text}) {
   isLoggedIn ?  Toast(text.toast[0]) :Toast(text.toast[1])
   const pVal = text.p
@@ -44,7 +46,9 @@ function Home({isLoggedIn , text}) {
                 </motion.p>
                 {isLoggedIn ? <NavLink to="/user">{text.btn[1]}</NavLink> : <NavLink to="/signup">{text.btn[0]}</NavLink>}
             </div>
-            {/* <img src={home_banner} /> */}
+            <div className={styles.banner}>
+              <Lottie animationData={home_banner}/>
+            </div>
             </div>
         </div>
     </div>
