@@ -75,11 +75,11 @@ function Profile({user , loggedout , text}) {
           <form onSubmit={changePassword} className={styles.data} name='change password'>
         <div>
     <input name='password' required type='text' placeholder={text.form[0]} value={newPass} onChange={(e)=> setNewPass(e.target.value)}  />
-        <span style={{animationName:`${!newPass?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[0]}</span>
+        <span style={{animationName:`${!newPass?"hide_span":"show_span"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[0]}</span>
         </div>
         <div>
     <input name='password' required type='text' placeholder={text.form[1]} value={newPassrep} onChange={(e)=> setNewPassrep(e.target.value)}  />
-        <span style={{animationName:`${!newPassrep?"Styles_hide_span__-Hty7":"Styles_show_span__7Hnrl"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[1]}</span>
+        <span style={{animationName:`${!newPassrep?"hide_span":"show_span"}`,right:`${document.body.style.direction === "rtl" && 0}`,left:`${document.body.style.direction === "ltr" && 0}`}} >{text.form[1]}</span>
         </div>
         <input type='submit' value={text.form[2]} name='submit' style={{pointerEvents:`${wait? "none" : "all"}` , opacity:`${wait? 0.5 : 1}`}}/>
           </form>

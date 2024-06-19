@@ -96,25 +96,6 @@
     animation-fill-mode: forwards;
     color: #666;
 }
-@keyframes show_span {
-    from{
-        opacity: 0;
-        top: 30px;
-    }to{
-        opacity: 1;
-        top: 0;
-    }
-}
-@keyframes hide_span {
-    from{
-        opacity: 1;
-        top: 0;
-    }
-    to{
-        opacity: 0;
-        top: 30px;
-    }
-}
 .Profile .right button{
     background-color: var(--primary-color);
     color: #eee;
