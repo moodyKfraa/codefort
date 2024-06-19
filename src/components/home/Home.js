@@ -6,6 +6,7 @@ import {motion} from 'framer-motion'
 import Par from '../tsParticles/TsParticles'
 import home_banner from "./home.json"
 import Lottie from 'lottie-react'
+import supabase from '../../Supabase'
 
 function Home({isLoggedIn , text}) {
   isLoggedIn ?  Toast(text.toast[0]) :Toast(text.toast[1])
@@ -48,6 +49,9 @@ function Home({isLoggedIn , text}) {
             </div>
             <div className={styles.banner}>
               <Lottie animationData={home_banner}/>
+              <button onClick={async()=>{
+                await supabase.auth.signInWithOAuth({provider:"google"})
+              }}>click</button>
             </div>
             </div>
         </div>
