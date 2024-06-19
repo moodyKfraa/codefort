@@ -50,8 +50,7 @@ function Home({isLoggedIn , text}) {
             <div className={styles.banner}>
               <Lottie animationData={home_banner}/>
               <button onClick={async()=>{
-                await supabase.auth.signInWithOAuth({provider:"google"})
-                console.log("go");
+                await supabase.auth.signInWithOAuth({provider:"google"}).then(res=>console.log(res))
               }}>click</button>
             </div>
             </div>
