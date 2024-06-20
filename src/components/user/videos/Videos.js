@@ -17,7 +17,7 @@ function Videos({access , text}) {
                     setVideos(data.data)
                 }else{Toast(data.error.message)}
             })}
-                if(access){fetch() ;console.log("go");}else{Toast(text.toast)}
+                access? fetch() :Toast(text.toast)
         },[activeVideo ,access])
 
   return (   
