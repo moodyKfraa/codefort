@@ -90,6 +90,25 @@
     border-bottom: var(--primary-color) 1px solid;
     color: var(--text-color);
 }
+.Profile .profileImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 50px;
+    text-transform: uppercase;
+    border: 1px var(--secondary-color) solid;
+    outline: 1px var(--primary-color) solid;
+    transition-duration: .3s;
+}
+.profileImg:hover{
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
 .Profile .right div span{
     position: absolute;
     animation-duration: 0.5s;

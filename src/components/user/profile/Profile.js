@@ -56,7 +56,7 @@ function Profile({user , loggedout ,provider, text}) {
       <div className={styles.right}>
         {activeTab === "overview" ?
         <div className={styles.overview}>
-          <h1>{text.h1[0]}</h1>
+          <div className={styles.profileImg}>{user.name[0]}</div>
           <div className={styles.data}>
               <p>{text.p[0]} :</p>
               <p>{user.name}</p>
