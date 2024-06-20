@@ -17,8 +17,8 @@ function Videos({access , text}) {
                     setVideos(data.data)
                 }else{Toast(data.error.message)}
             })}
-                if(access){fetch()}else{Toast(text.toast)}
-        },[activeVideo ,access,text.toast])
+                if(access){fetch() ;console.log("go");}else{Toast(text.toast)}
+        },[activeVideo ,access])
 
   return (   
       <div className={styles.videos}> 
