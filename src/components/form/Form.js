@@ -3,6 +3,7 @@ import styles from "./Styles.module.css"
 import supabase from '../../Supabase'
 import { useNavigate } from 'react-router-dom'
 import Toast from '../toast/Toast'
+import google from "../../assets/icons8-google-94.png"
 
 function Form({type , sendUserData , text}) {
   const [name , setName] = useState('')
@@ -11,7 +12,6 @@ function Form({type , sendUserData , text}) {
     const [phone , setPhone] = useState('')
     const [wait , setWait] = useState(false)
     const formType = type === "signup";
-
     const reset = ()=>{
         setName("")
         setEmail("")
@@ -19,19 +19,6 @@ function Form({type , sendUserData , text}) {
         setPhone("")
     }
     const nav = useNavigate()
-
-     async function fetchUserData (email){
-      await supabase
-       .from("users").select("*").eq("email", email)
-        .then((data)=>{
-          if(data.data){
-            sendUserData(data.data[0])
-            reset()
-            Toast(text.Toast[0])
-            setWait(false)
-          }else{Toast(data.error.message);setWait(false)}
-        })
-      };
     
       const handleSubmit = async(e)=>{
       e.preventDefault();
@@ -40,49 +27,38 @@ function Form({type , sendUserData , text}) {
         await supabase.auth.signUp({
             email : email,
             password:pass,
-            phone:phone,
-           })
-           .then(async(data)=>{
-             if(data.data){
-               await supabase.from("users").insert([{
-                 email : data.data.user.email,
-                 id: data.data.user.id,
-                 signedupfrom : data.data.user.created_at,
-                 name:name,
-                 phone : phone,
-                 access : false,
-                }])
-                .then((data)=>{
-                if(data.status === 201){
-                  reset()
-                  setWait(false)
-                  nav("/login")
-                  Toast(text.toast[2])
-                }else{
-                  setWait(false)
-                  Toast(text.toast[1])
-                }
-              })
+            options:{
+              data:{
+                name:name,
+                phone:phone
+              }
             }
-            else{Toast(text.toast[1]);setWait(false)}
-              
-           
-          })
+           }).then(data=>{
+            if(data.data.user){Toast(text.toast[2]);reset();setWait(false);nav("/login");}
+            else{Toast(data.error.message)}
+            })
         }else{
           await supabase.auth.signInWithPassword({
             email : email,
             password:pass,
           }).then((data)=>{
             if(data.data.user){
-              fetchUserData(data.data.user.email)
-              nav("/user")
+              sendUserData()
               setWait(false)
+              reset()
+              setWait(false)
+              nav("/user")
+            Toast(text.toast[0])
             }else{Toast(data.error.message);setWait(false)}})}
     }
 
+    const googleAuth =async()=>{
+      await supabase.auth.signInWithOAuth({provider:"google"})
+    }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <div className={styles.form}> 
+    <form onSubmit={handleSubmit}>
     <div className={styles.inner}>
       {type==="signup"&&
       <Fragment>
@@ -107,7 +83,13 @@ function Form({type , sendUserData , text}) {
         <input type='submit' value={text.bt} name='submit' style={{pointerEvents:`${wait? "none" : "all"}` , opacity:`${wait? 0.5 : 1}`}}/>
         </div>
    </form>
+   <hr/>
+            <button onClick={googleAuth}>
+              <img src={google}/>
+            </button>
+    </div>
   )
+
 }
 
 export default Form

@@ -10,14 +10,11 @@ import supabase from './Supabase'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
-import Toast from './components/toast/Toast'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
-  const [user , setUser] = useState();
   const [text ,setText] = useState();
   const [curText ,setCurText] = useState();
-
 async function getTextData(){
    const text =  await import('./data.json')
     setText(text)
@@ -32,38 +29,20 @@ if(!text){getTextData()}
     document.body.style.direction = `${lang === "en" ? "ltr" : "rtl"}`
   }
 
-  useEffect(()=>{      
-    const fetch = async()=>{
-      await supabase.auth.getUser().then(async ({data})=>{
-        if(data.user.aud === "authenticated"){
-          await supabase.from("users").select("*").eq("email",data.user.email)
-          .then(userData=>{
-            if(userData.data){
-              setIsLoggedIn(true)
-              setUser(userData.data[0])
-            }else{
-              Toast(userData.error.message)
-              setIsLoggedIn(false)
-              setUser()
-            }
-            })
-        }else{
-          setIsLoggedIn(false);
-          setUser(null)
-        }})}
-
-    fetch()
-  },[isLoggedIn])
-
-
-  const getUserData =(data)=>{
-    setUser(data)
+  const getUserData =()=>{
     setIsLoggedIn(true)
   }
   const loggedout =()=>{
     setIsLoggedIn(false)
-    setUser(null)
   }
+
+  useEffect(()=>{
+    const isUserIn =async ()=>{
+      await supabase.auth.getUser().then(({data}) =>data.user&& setIsLoggedIn(true))
+    }
+    isUserIn()
+  },[isLoggedIn])
+
 
   return (curText&&
       <BrowserRouter>
@@ -73,8 +52,7 @@ if(!text){getTextData()}
         <Route path="/contact" element={<ContactUs text={curText.contact}/>} />
         <Route path="/signup" element={<SignUp sendUserData={getUserData} text={curText.form} />} />
         <Route path="/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
-        <Route path="/user" element={<User user={user} loggedout={loggedout} text={curText.user}/>} />
-        <Route path="/#" element={<ContactUs text={curText.contact}/>} />
+        <Route path="/user" element={<User isLoggedIn={isLoggedIn} loggedout={loggedout} text={curText.user}/>} />
       </Routes>
       <Footer text={curText.footer}/>
       </BrowserRouter>

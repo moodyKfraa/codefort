@@ -75,6 +75,7 @@ img{
     animation: show 8s forwards ease-in-out;
     overflow: hidden;
     box-shadow: var(--shadow);
+    z-index: 999;
 }
 .toast .content{
     display: flex;

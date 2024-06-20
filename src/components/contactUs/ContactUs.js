@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import wats from '../../assets/whatsappQrCode.jpg'
 import fb from '../../assets/fbQrCode.png'
+import createUserDb from '../createUserDb'
 function ContactUs({text}) {
   return (
     <div className="container">

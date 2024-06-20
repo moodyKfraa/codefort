@@ -5,16 +5,17 @@
     align-items: center;
     width: 320px;                                   
     margin: auto;
+    margin-bottom: 50px;
     margin-top: 50px;
     padding: 20px 10px;
     border-radius: 10px;
-    gap: 30px;
+    gap: 10px;
     box-shadow: var(--shadow);
 }
 .form .inner{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 .form .inner div{
     display: flex;
@@ -25,7 +26,10 @@
 .form img{
     width: 100px;
 }
-
+hr{
+    width: 20%;
+    background-color: var(--text-color);
+}
 .form input{
     padding-top: 15px ;
     border: none;
@@ -45,6 +49,17 @@
     border: 1px solid var(--secondary-color);
     outline: 1px solid var(--primary-color);
     box-sizing: border-box;
+}
+.form button{
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+}
+.form button img{
+    height: 50px;
+    width: 50px;
 }
 .form input[name = "submit"]:hover{
     background-color: transparent;

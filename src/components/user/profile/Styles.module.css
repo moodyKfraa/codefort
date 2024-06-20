@@ -30,7 +30,7 @@
 .Profile .overview .data{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     margin-top: 20px;
     gap: 10px;

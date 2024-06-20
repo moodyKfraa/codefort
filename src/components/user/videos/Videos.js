@@ -5,7 +5,7 @@ import supabase from '../../../Supabase'
 import Toast from '../../toast/Toast'
 
 
-function Videos({user , text}) {
+function Videos({access , text}) {
     const [activeVideo,setActiveVideo] = useState()
     const [videos ,setVideos ] = useState()
 
@@ -17,10 +17,10 @@ function Videos({user , text}) {
                     setVideos(data.data)
                 }else{Toast(data.error.message)}
             })}
-                if(user.access){fetch()}else{Toast(text.toast)}
-        },[activeVideo ,user.access,text.toast])
+                if(access){fetch()}else{Toast(text.toast)}
+        },[activeVideo ,access,text.toast])
 
-  return (user&&   
+  return (   
       <div className={styles.videos}> 
     <div className={styles.left}>
     {videos?

@@ -4,7 +4,7 @@ import supabase from '../../../Supabase'
 import {useNavigate } from 'react-router-dom'
 import Toast from '../../toast/Toast'
 
-function Profile({user , loggedout , text}) {
+function Profile({user , loggedout ,provider, text}) {
   const [activeTab , setActiveTab] = useState("overview")
   const [newPass , setNewPass] = useState("")
   const [newPassrep , setNewPassrep] = useState("")
@@ -46,12 +46,11 @@ function Profile({user , loggedout , text}) {
     navigate("/")
     Toast(text.toast[2])
   }
-  return (
- user &&
+  return (user &&
  <div className={styles.Profile}>
       <div className={styles.left}>
         <button onClick={()=>{setActiveTab("overview")}}>{text.btn[0]}</button>
-        <button onClick={()=>{setActiveTab("changePassword")}}>{text.btn[1]}</button>
+        {provider === "gmail" && <button onClick={()=>{setActiveTab("changePassword")}}>{text.btn[1]}</button>}
         <button onClick={handleLogOut}>{text.btn[2]}</button>
       </div>
       <div className={styles.right}>
@@ -65,8 +64,6 @@ function Profile({user , loggedout , text}) {
               <p>{user.phone}</p>
               <p>{text.p[2]} :</p>
               <p>{user.email}</p>
-              <p>{text.p[3]} :</p>
-              <p>{user.signedupfrom}</p>
           </div>
         </div>
           :
