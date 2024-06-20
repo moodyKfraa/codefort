@@ -17,7 +17,7 @@ function User({isLoggedIn , loggedout,text}) {
         if(!data.user){setUser({}); loggedout();return}
         if(data.user.aud === "authenticated"){
               setUser(data.user.user_metadata)
-              setProvider(data.user.raw_app_meta_data.provider)
+              setProvider(data.user.app_metadata.provider)
               await supabase.from("users").select("access").eq("email" , data.user.email)
               .then(async userDb=> {
                 if(userDb.data[0]){
