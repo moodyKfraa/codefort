@@ -36,13 +36,8 @@ if(!text){getTextData()}
     setIsLoggedIn(false)
   }
 
-  useEffect(()=>{
-    const isUserIn =async ()=>{
-      await supabase.auth.getUser().then(({data}) =>data.user&& setIsLoggedIn(true))
-    }
-    isUserIn()
-  },[isLoggedIn])
-
+  const isUserIn = localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")
+  isUserIn&& setIsLoggedIn(true)
 
   return (curText&&
       <BrowserRouter>
