@@ -18,7 +18,7 @@ function Videos({access , text}) {
                 }else{Toast(data.error.message)}
             })}
                 access? fetch() :Toast(text.toast)
-        },[activeVideo ,access])
+        },[activeVideo ,access ,text.toast])
 
   return (   
       <div className={styles.videos}> 

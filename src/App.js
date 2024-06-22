@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import Header from './components/header/Header'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/home/Home'
 import SignUp from './components/signup/SignUp'
 import Login from './components/login/Login'
-import supabase from './Supabase'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'

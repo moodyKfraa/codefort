@@ -33,7 +33,7 @@ function User({isLoggedIn , loggedout,text}) {
           setUser({})
         }})}
     if(isLoggedIn){fetch()}
-  },[isLoggedIn])
+  },[isLoggedIn , loggedout])
 
   return (isLoggedIn&&
     <div className={styles.user}>

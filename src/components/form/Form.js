@@ -85,7 +85,7 @@ function Form({type , sendUserData , text}) {
    </form>
    <hr/>
             <button onClick={googleAuth}>
-              <img src={google}/>
+              <img src={google} alt='google logo'/>
             </button>
     </div>
   )

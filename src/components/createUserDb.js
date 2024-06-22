@@ -1,4 +1,3 @@
-import supabase from "../Supabase"
 
 const createUserDb = async()=>{
 //     await supabase.auth.getUser().then(async ({data})=>{

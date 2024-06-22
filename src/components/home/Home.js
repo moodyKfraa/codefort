@@ -6,7 +6,6 @@ import {motion} from 'framer-motion'
 import Par from '../tsParticles/TsParticles'
 import home_banner from "./home.json"
 import Lottie from 'lottie-react'
-import supabase from '../../Supabase'
 
 function Home({isLoggedIn , text}) {
   isLoggedIn ?  Toast(text.toast[0]) :Toast(text.toast[1])
