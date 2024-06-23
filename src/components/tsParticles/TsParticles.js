@@ -3,7 +3,6 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import styles from './styles.module.css'
 import { tsParticles } from "@tsparticles/engine";
-import { loadPolygonMaskPlugin } from "@tsparticles/plugin-polygon-mask";
 const Par = () => {
     const [init, setInit] = useState(false);
 
@@ -545,17 +544,10 @@ const Par = () => {
   ),
     [],
   );
-
-  (async () => {
-    await loadPolygonMaskPlugin(tsParticles);
-  })();
-
   if (init) {
     return <Particles className={styles.tsparticles} options={options} />;
   }
-
   return <></>;
-  
 }
 
 export default Par
