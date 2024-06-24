@@ -30,7 +30,7 @@ function Admin() {
     },[setAccess , access ,nav])
 
   return (access&&
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.admin}>
             <div className={styles.inner}>
             <input required type='text' placeholder="title :" value={title} onChange={(e)=> setTitle(e.target.value)}  />
             <input required type='text' placeholder="video Link :" value={link} onChange={(e)=> setLink(e.target.value)}  />
