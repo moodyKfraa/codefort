@@ -1,6 +1,6 @@
 {
-  "short_name": "CodeFort Academy",
-  "name": "Academy for web development",
+  "short_name": "CodeFort ",
+  "name": "CodeFort Academy",
   "icons": [{"src": "./logo.png"}],
   "start_url": "/",
   "display": "standalone",
