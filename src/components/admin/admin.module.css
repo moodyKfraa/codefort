@@ -1,14 +1,14 @@
-.admin form{
+.admin{
     width: 400px;
     margin: auto;
     margin-top: 50px;
 }
-.admin form .inner{
+.admin .inner{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.admin form input{
+.admin input{
     padding-top: 15px ;
     border: none;
     outline: none;
@@ -17,7 +17,7 @@
     border-bottom: var(--primary-color) 1px solid;
     color: var(--text-color);
 }
-.admin form input[name = "submit"]{
+.admin input[name = "submit"]{
     background-color: var(--primary-color);
     color: var(--text-color);
     font-size: 20px;
@@ -28,7 +28,7 @@
     outline: 1px solid var(--primary-color);
     box-sizing: border-box;
 }
-.admin form input[name = "submit"]:hover{
+.admin input[name = "submit"]:hover{
     background-color: transparent;
     color: var(--primary-color );
 }
