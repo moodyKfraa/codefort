@@ -36,7 +36,7 @@ if(!text){getTextData()}
   }
 
   const isUserIn = localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")
-  if(isUserIn) {setIsLoggedIn(true)}
+  if(isUserIn && !isLoggedIn) {setIsLoggedIn(true)}
 
   return (curText&&
       <BrowserRouter>
