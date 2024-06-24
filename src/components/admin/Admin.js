@@ -11,11 +11,12 @@ function Admin() {
     const [wait , setWait] = useState(false)
     const handleSubmit =async (e)=>{
         e.preventDefault();
+        setWait(true)
         const validLink = link.slice(0,-19)+ "preview"
         await supabase.from("videos").insert([{
             title: title,
             link:validLink,
-        }]).then(({error})=>error&&Toast(error.message))
+        }]).then(({error})=>error?Toast(error.message): setWait(false))
     }
     const nav = useNavigate()
     useEffect(()=>{
@@ -27,7 +28,7 @@ function Admin() {
                 }else{setAccess(false) ; nav("/")}
             }else{nav("/")}
         })
-    },[setAccess])
+    },[setAccess , access])
 
   return (access&&
       <form onSubmit={handleSubmit}>
