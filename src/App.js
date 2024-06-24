@@ -10,6 +10,7 @@ import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
 import Admin from './components/admin/Admin'
+import supabase from './Supabase'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
@@ -36,8 +37,9 @@ if(!text){getTextData()}
     setIsLoggedIn(false)
   }
   useEffect(()=>{
-    const isUserIn = localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")
-    if(isUserIn && !isLoggedIn) {setIsLoggedIn(true)}
+    supabase.auth.getUser().then(({data})=>{
+      if(data.user && !isLoggedIn) {setIsLoggedIn(true)}
+    })
   },[isLoggedIn,setIsLoggedIn])
 
   return (curText&&
