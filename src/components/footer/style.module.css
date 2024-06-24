@@ -10,6 +10,7 @@
     bottom: 0;
     gap: 50px;
     text-align: center;
+    z-index: 10;
 }
 .footer span{
     color: #eee;

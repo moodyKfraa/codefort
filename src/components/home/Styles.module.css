@@ -11,6 +11,7 @@
     justify-content: space-between;
     background: transparent;
     z-index: 1;
+    overflow: hidden;
 }
 .text{
     display: flex;
@@ -58,6 +59,8 @@ h1,p{margin: 0;}
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(1.5
+    );
 }
 @keyframes upAndDown {
     from{transform: translateY(-10px);}
@@ -68,6 +71,7 @@ h1,p{margin: 0;}
     .home .inner{
         flex-direction: column;
         text-align: center;
+        gap: 60px;
     }
     .text{width: 100%;}
     .banner{width: 100%;}
