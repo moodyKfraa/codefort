@@ -37,9 +37,15 @@ if(!text){getTextData()}
     setIsLoggedIn(false)
   }
   useEffect(()=>{
-    supabase.auth.getUser().then(({data})=>{
-      if(data.user && !isLoggedIn) {setIsLoggedIn(true)}
-    })
+    if(!isLoggedIn){
+      if(localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")){
+        setIsLoggedIn(true)
+      }else{
+        supabase.auth.getUser().then(({data})=>{
+          if(data.user){setIsLoggedIn(true)}
+        })
+      }
+    }
   },[isLoggedIn,setIsLoggedIn])
 
   return (curText&&
