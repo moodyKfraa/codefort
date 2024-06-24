@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import Header from './components/header/Header'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/home/Home'
@@ -35,9 +35,10 @@ if(!text){getTextData()}
   const loggedout =()=>{
     setIsLoggedIn(false)
   }
-
-  const isUserIn = localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")
-  if(isUserIn && !isLoggedIn) {setIsLoggedIn(true)}
+  useEffect(()=>{
+    const isUserIn = localStorage.getItem("sb-uhtemvqbfzogigemhknj-auth-token")
+    if(isUserIn && !isLoggedIn) {setIsLoggedIn(true)}
+  },[isLoggedIn,setIsLoggedIn])
 
   return (curText&&
       <BrowserRouter>
