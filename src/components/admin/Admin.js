@@ -22,13 +22,12 @@ function Admin() {
     useEffect(()=>{
         supabase.auth.getUser().then(async(data)=>{
             if(data.data.user){
-                console.log(access);
-                if(data.data.user.email){
+                if(data.data.user.email === "dhmy18937@gmail.com" || data.data.user.email === "hoodaalkfrawy321@gmail.com"){
                     setAccess(true)
                 }else{setAccess(false) ; nav("/")}
             }else{nav("/")}
         })
-    },[setAccess , access])
+    },[setAccess , access ,nav])
 
   return (access&&
       <form onSubmit={handleSubmit}>
