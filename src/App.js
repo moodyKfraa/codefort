@@ -9,6 +9,7 @@ import Login from './components/login/Login'
 import User from './components/user/User'
 import Footer from './components/footer/Footer'
 import ContactUs from './components/contactUs/ContactUs'
+import Admin from './components/admin/Admin'
 
 function App() {
   const [isLoggedIn , setIsLoggedIn] = useState(false);
@@ -44,6 +45,7 @@ if(!text){getTextData()}
       <Routes>
         <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} text={curText.home}/>} />
         <Route path="/contact" element={<ContactUs text={curText.contact}/>} />
+        <Route path="/admin" element={<Admin/>} />
         <Route path="/signup" element={<SignUp sendUserData={getUserData} text={curText.form} />} />
         <Route path="/login" element={<Login sendUserData={getUserData} text={curText.form} />} />
         <Route path="/user" element={<User isLoggedIn={isLoggedIn} loggedout={loggedout} text={curText.user}/>} />
